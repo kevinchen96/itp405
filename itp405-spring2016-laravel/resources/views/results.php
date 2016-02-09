@@ -48,5 +48,8 @@ else{
             <td>
                 <?php echo $dvd->format_name ?>
             </td>
+            <td>
+                <a href="/dvds/<?php echo $dvd->id?>">Review</a>
+            </td>
         </tr>
     <?php endforeach; ?>

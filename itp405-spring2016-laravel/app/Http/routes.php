@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'DvdController@results');
+Route::group(['middleware' => 'web'], function() {
+    Route::get('/', 'DvdController@results');
+    Route::get('/search', 'DvdController@search');
+    Route::get('/dvds/{id}', 'DvdController@details');
+    Route::post('/addReview', 'DvdController@reviews');
+});
 
-Route::get('/search', 'DvdController@search');
 
 /*
 |--------------------------------------------------------------------------
