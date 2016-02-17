@@ -8,17 +8,18 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use Validator;
+use App\Models\Format;
+use App\Models\Dvd;
+use App\Models\Genre;
+use App\Models\Label;
+use App\Models\Rating;
+use App\Models\Sound;
 class DvdController extends Controller
 {
     public function search()
     {
-        $genres = DB::table('genres')
-            ->select('id', 'genre_name')
-            ->get();
-
-        $ratings = DB::table('ratings')
-            ->select('id', 'rating_name')
-            ->get();
+        $genres = Genre::all();
+        $ratings = Rating::all();
 
         return view('search', [
             'genres' => $genres,
@@ -129,8 +130,72 @@ class DvdController extends Controller
                 'description' => $description,
                 'dvd_id' => $id
             ]);
-        return redirect("dvds/$id")->with('success', true);
+            return redirect("dvds/$id")->with('success', true);
         }
+
+    }
+
+    public function create()
+    {
+        $formats = Format::all();
+        $genres = Genre::all();
+        $labels = Label::all();
+        $ratings = Rating::all();
+        $sounds = Sound::all();
+
+        return view('create', [
+            'formats' => $formats,
+            'labels' => $labels,
+            'genres' => $genres,
+            'ratings' => $ratings,
+            'sounds' => $sounds
+        ]);
+    }
+
+    public function addDvd(Request $request)
+    {
+        $title = $request -> input('title');
+        $genre_id = $request -> input('genre_id');
+        $rating_id = $request -> input('rating_id');
+        $format_id = $request -> input('format_id');
+        $label_id = $request -> input('label_id');
+        $sound_id = $request -> input('sound_id');
+
+        $dvd = new Dvd();
+        $dvd -> title = $title;
+        $dvd -> genre_id = $genre_id;
+        $dvd -> rating_id = $rating_id;
+        $dvd -> format_id = $format_id;
+        $dvd -> label_id = $label_id;
+        $dvd -> sound_id = $sound_id;
+
+        $validation = Validator::make($request->all(), [
+            'title' => 'Required'
+        ]);
+
+        if ($validation->fails()) {
+            return redirect("/dvds/create")
+                ->withInput()
+                ->withErrors($validation);
+        }
+
+        else{
+            $dvd -> save();
+            return redirect("dvds/create")->with('success', true);
+        }
+
+    }
+    public function genres($id)
+    {
+        $genre = Genre::find($id);
+        $dvds = Dvd::with('genre', 'rating', 'label')
+            ->where('genre_id', '=', "$id")
+            ->get();
+
+        return view('genre', [
+            'dvds' => $dvds,
+            'genre' => $genre
+        ]);
 
     }
 }
