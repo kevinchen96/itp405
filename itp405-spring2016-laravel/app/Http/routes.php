@@ -11,6 +11,8 @@
 |
 */
 
+use App\Services\API\GoogleBooks;
+
 Route::group(['prefix' => 'api/v1', 'namespace' => 'API'], function() {
     Route::get('genres', 'GenreController@index');
     Route::get('genres/{id}', 'GenreController@show');
@@ -29,6 +31,15 @@ Route::group(['middleware' => 'web'], function() {
     Route::get('/genres/{id}/dvds', 'DvdController@genres');
 });
 
+Route::get('/googlebooks/{bookname}', function($bookname){
+    $googlebooks = new GoogleBooks();
+    $books = $googlebooks->books("https://www.googleapis.com/books/v1/volumes?q=$bookname");
+    //return $books;
+
+    return View::make('googlebooks', [
+        'books' => $books
+    ]);
+});
 
 /*
 |--------------------------------------------------------------------------
