@@ -23,6 +23,7 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'API'], function() {
 
 Route::group(['middleware' => 'web'], function() {
     Route::get('/', 'DvdController@results');
+    Route::get('/dvds', 'DvdController@results');
     Route::get('/dvds/create', 'DvdController@create');
     Route::get('/search', 'DvdController@search');
     Route::get('/dvds/{id}', 'DvdController@details');

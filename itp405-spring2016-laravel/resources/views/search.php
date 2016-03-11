@@ -160,7 +160,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
-            <form action="/" method="get">
+            <form action="/dvds" method="get">
                 DVD: <input type="text" name="title">
                 <br>
                 Genre:
