@@ -1,0 +1,1 @@
+/Users/Kevin/itp405-music-ember/tmp/funnel-input_base_path-2FPmeMxE.tmp/0/utils/module-registry.js

@@ -1,0 +1,1 @@
+/Users/Kevin/itp405-music-ember/tmp/broccoli_merge_trees-input_base_path-SEyeangT.tmp/1/addons.js

@@ -1,0 +1,1 @@
+/Users/Kevin/itp405-music-ember/tmp/creator-output_path-fNM615dM.tmp/version.js

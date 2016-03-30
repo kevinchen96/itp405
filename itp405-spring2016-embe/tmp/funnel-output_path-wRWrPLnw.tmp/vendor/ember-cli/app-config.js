@@ -1,0 +1,1 @@
+/Users/Kevin/itp405-music-ember/tmp/funnel-input_base_path-ajWaF6qY.tmp/0//app-config.js
