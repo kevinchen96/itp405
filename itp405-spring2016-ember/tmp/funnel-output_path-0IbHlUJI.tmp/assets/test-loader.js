@@ -1,1 +1,0 @@
-/Users/Kevin/itp405/itp405-spring2016-ember/tmp/funnel-input_base_path-rQgjSts0.tmp/0/bower_components/ember-cli-test-loader/test-loader.js

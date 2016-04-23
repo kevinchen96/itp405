@@ -1,1 +1,0 @@
-/Users/Kevin/itp405/itp405-spring2016-ember/tmp/broccoli_merge_trees-input_base_path-ngQQ1KmM.tmp/0/itp405-music-ember/tests/unit/routes/artists/artist-test.js
