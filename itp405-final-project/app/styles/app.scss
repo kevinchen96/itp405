@@ -1,1 +1,17 @@
 @import "bootstrap";
+
+body {
+  padding-top: 20px;
+}
+
+.jumbotron {
+	margin-top: -20px;
+	background: url('wimbledon.jpg');
+	height: 500px;
+}
+
+.search {
+	margin-top: 7px;
+	margin-bottom: 0px;
+	padding: 0 !important;
+}

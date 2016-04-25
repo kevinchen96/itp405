@@ -2,6 +2,7 @@ var models = require('../models');
 var Event = require('../models/event');
 var User = require('../models/user');
 
+
 var UserController = {};
 
 
@@ -84,6 +85,7 @@ UserController.getUsers = function (req, res) {
     res.json(response);
   });
 };
+
 
 // UserController.getUsers = function (req, res) {
 // 	var password = "5f4dcc3b5aa765d61d8327deb882cf99";

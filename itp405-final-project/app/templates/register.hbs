@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="well">Registration Form</h1>
+	<div class="col-lg-6 well">
+		<div class="form-horizontal">
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">First Name</label>
+		        <div class="col-sm-10">
+		          {{input type="text" value=first_name class="form-control" placeholder="Enter your first name"}}
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Last Name</label>
+		        <div class="col-sm-10">
+		          {{input type="text" value=last_name class="form-control" placeholder="Enter your last name"}}
+		        </div>
+		    </div>
+		    <div class="form-group has-feedback {{if notEmailEmpty (if emailValid 'has-success')}} {{if notEmailEmpty (if emailInvalid 'has-error')}}">
+		        <label class="col-sm-2 control-label">Email</label>
+		        <div class="col-sm-10">
+		          {{input type="text" value=email class="form-control" placeholder="Enter your email"}}
+		          {{#if notEmailEmpty}}
+		          	{{#if emailValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+		          	{{#if emailInvalid}}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{{/if}}
+		          {{/if}}
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">Password</label>
+		        <div class="col-sm-10">
+		          {{input type="password" value=password class="form-control" placeholder="Enter your password"}}
+		        </div>
+		    </div>
+		    <div class="form-group has-feedback {{if notEmpty (if passwordValid 'has-success')}} {{if notEmpty (if passwordInvalid 'has-error')}}">
+		        <label class="col-sm-2 control-label">Confirm Password</label>
+		        <div class="col-sm-10">
+		          {{input type="password" value=confirm class="form-control" placeholder="Confirm Password"}}
+		          {{#if notEmpty}}
+		          	{{#if passwordValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+		          	{{#if passwordInvalid}}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{{/if}}
+		          {{/if}}
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <label class="col-sm-2 control-label">NTRP Rating</label>
+		        <div class="col-sm-10">
+		          {{input type="text" value=rating class="form-control" placeholder="Enter your NTRP Rating (1.0, 2.0, 3.5 ...)"}}
+		        </div>
+		    </div>
+		    <div class="form-group">
+		        <div class="col-sm-offset-2 col-sm-10">
+		            <button type="submit" class="btn btn-default" {{action 'registerUser' }} disabled="{{unless isValid 'disabled'}}">Submit</button>
+		        </div>
+		    </div>
+		    <p class="text-center">Already have an account? {{#link-to 'login'}}Log in{{/link-to}}</p>
+		</div>
+	</div>
+</div>

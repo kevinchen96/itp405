@@ -26,6 +26,14 @@ var User = sequelize.define('user', {
 		field: 'rating',
 		type: Sequelize.DECIMAL,
 	},
+	hash: {
+		field: 'hash',
+		type: Sequelize.STRING,
+	},
+	admin: {
+		field: 'admin',
+		type: Sequelize.BOOLEAN,
+	},
 
 }, {
 	timestamps: false,

@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="col-lg-8 well">Login Form</h1>
+	<div class="col-lg-8 well">
+	<div class="row">
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Email Address</label>
+						{{input type="text" value=email placeholder="Enter Email Address Here.." class="form-control"}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Password</label>
+						{{input type="password" value=password placeholder="Enter Passsword Here.." class="form-control"}}
+							</div>
+						</div>
+						<button type="button" class="btn btn-lg btn-info" {{action 'loginUser' }} >Login</button>
+						<p class="text-center">Don't have an account? {{#link-to 'register'}}Register{{/link-to}}</p>		
+					</div>
+				</form> 
+				</div>
+	</div>
+	</div>
