@@ -14,17 +14,22 @@
       <ul class="nav navbar-nav">
             {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
             {{#link-to 'explore' tagName="li"}}<a href="">Explore</a>{{/link-to}}
+          	{{#if loggedIn}}
+          		{{#link-to 'profile' tagName="li"}}<a href="">Profile</a>{{/link-to}}
+          	{{/if}}
       </ul>
-
+      <form>
       <ul class="search col-md-5 text-center">
-           <input type="text" class="form-control" placeholder="Search for events or players" id="search" >
+           {{input type="text" value=query class="form-control" placeholder="Search for events or players" id="search"}}
        </ul>
-       <ul class="search col-md-2 text-center">
-       <select class="form-control" name="sengines">
-			<option value="http://www.google.com/search?q=" selected>Events</option>
-			<option value="http://www.altavista.com/web/results?q=">Players</option>
+       <ul class="search col-md-2 text-center" onchange={{action "selectFilter" value="target.value"}}>
+       <select class="form-control" name="filters">
+			<option value=events selected={{isEvent}}>Events</option>
+			<option value=players selected={{!isEvent}}>Players</option>
 		</select>
        </ul>
+       <input type="submit" value="Submit" hidden="hidden" {{action 'search' }}>
+       </form>
       <ul class="nav navbar-nav navbar-right">
       	{{#unless loggedIn}}
             {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}

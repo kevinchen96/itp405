@@ -10,8 +10,28 @@ var Event = sequelize.define('event', {
 		type: Sequelize.INTEGER,
 		primaryKey: true
 	},
-	location: {
-		field: 'location',
+	name: {
+		field: 'name',
+		type: Sequelize.STRING,
+	},
+	description: {
+		field: 'description',
+		type: Sequelize.STRING,
+	},
+	address: {
+		field: 'address',
+		type: Sequelize.STRING,
+	},
+	city: {
+		field: 'city',
+		type: Sequelize.STRING,
+	},
+	state: {
+		field: 'state',
+		type: Sequelize.STRING,
+	},
+	zip: {
+		field: 'zip',
 		type: Sequelize.STRING,
 	},
 	date: {

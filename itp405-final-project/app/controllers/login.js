@@ -1,12 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	transitionToProfile: function(){
-		this.transitionToRoute('profile');
-	},
-	reload: function(){
-		window.location.reload(true);
-	},
   	actions:{
   		loginUser(){
   			var mod = this;

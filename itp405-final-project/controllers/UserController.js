@@ -1,6 +1,7 @@
 var models = require('../models');
 var Event = require('../models/event');
 var User = require('../models/user');
+var sequelize = require('./../config/sequelize');
 
 
 var UserController = {};
@@ -86,6 +87,28 @@ UserController.getUsers = function (req, res) {
   });
 };
 
+UserController.getPlayersQuery = function(req, res){
+  var queries = req.query.queries;
+  var query = "SELECT * FROM users WHERE ";
+  query += "first_name LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR first_name LIKE '%"  + queries[i] + "%' ";
+  }
+  query += "OR last_name LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR last_name LIKE '%"  + queries[i] + "%' ";
+  }
+  query += "OR email LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR email LIKE '%"  + queries[i] + "%'";
+  }
+  sequelize.query(query, { type: sequelize.QueryTypes.SELECT})
+  .then(function(response) {
+    res.json({
+         user: response
+    });
+  });
+}
 
 // UserController.getUsers = function (req, res) {
 // 	var password = "5f4dcc3b5aa765d61d8327deb882cf99";

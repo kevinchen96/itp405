@@ -1,0 +1,82 @@
+    <div class="container main">
+        <div class="row event-row">
+            <div class="col-xs-12 event-details">
+                <div class="row">
+                    <div class="col-sm-9 event-description">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>{{model.name}}</h3>
+                                <h5>Created By: {{creator}}</h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-6">
+                                <h4>Date</h4>
+                                <p>{{ model.date }}</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <h4>Time</h4>
+                                <p>{{ model.time }}</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <h4>Address</h4>
+                                <p>{{ model.address }}</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <h4>City</h4>
+                                <p>{{ model.city }}</p>
+                            </div>
+          					<div class="col-sm-3 col-xs-6">
+                                <h4>State</h4>
+                                <p>{{ model.state }}</p>
+                            </div>
+                           <div class="col-sm-3 col-xs-6">
+                                <h4>Zip</h4>
+                                <p>{{ model.zip }}</p>
+                            </div>
+                        </div>
+                    </div><!-- /.event-description -->
+                </div>
+                <ul class="nav nav-tabs">
+				  <li class="{{if description 'active'}}"><a {{action 'setDescription'}}>Description</a></li>
+				  <li class="{{unless description 'active'}}"><a {{action 'setPlayers' }}>Current Players</a></li>
+				</ul>
+				{{#if description}}
+				<div class="col-sm-9 event-description">
+				{{#if model.description}}
+					{{model.description}}
+				{{/if}}
+				{{unless model.description 'No Description provided.'}}
+				</div>
+				{{/if}}
+				{{#unless description}}
+				<div class="col-sm-9 event-description">
+				{{#if model.users}}
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th>First Name</th>
+					      <th>Last Name</th>
+					      <th>NTRP</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+
+					{{#each model.users as |player|}}
+					    <tr>
+					      <td>{{player.first_name}}</td>
+					      <td>{{player.last_name}}</td>
+					      <td>{{player.rating}}</td>
+					    </tr>
+					 {{/each}}
+					  </tbody>
+					</table>
+				{{/if}}
+				{{unless model.users 'No participants at this time'}}
+				</div>
+				{{/unless}}
+            </div><!-- /.event-details -->
+            
+        </div><!-- /.event-row -->
+    </div><!-- /.container, .main -->

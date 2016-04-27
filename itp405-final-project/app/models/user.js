@@ -6,5 +6,6 @@ export default Model.extend({
 	last_name: attr('string'),
 	email: attr('string'),
 	rating: attr('number'),
+	events: attr()
 
 });

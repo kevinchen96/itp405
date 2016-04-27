@@ -22,7 +22,16 @@ define('itp405-final-project/tests/components/nav-bar.jshint', ['exports'], func
   QUnit.module('JSHint - components/nav-bar.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/nav-bar.js should pass jshint.\ncomponents/nav-bar.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 11, col 30, \'template literal syntax\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 18, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n4 errors');
+    assert.ok(false, 'components/nav-bar.js should pass jshint.\ncomponents/nav-bar.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 20, col 30, \'template literal syntax\' is only available in ES6 (use \'esversion: 6\').\ncomponents/nav-bar.js: line 27, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncomponents/nav-bar.js: line 36, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncomponents/nav-bar.js: line 40, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n6 errors');
+  });
+});
+define('itp405-final-project/tests/controllers/details.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/details.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/details.js should pass jshint.\ncontrollers/details.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/details.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/details.js: line 14, col 33, \'template literal syntax\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/details.js: line 19, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/details.js: line 22, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n5 errors');
   });
 });
 define('itp405-final-project/tests/controllers/login.jshint', ['exports'], function (exports) {
@@ -31,7 +40,7 @@ define('itp405-final-project/tests/controllers/login.jshint', ['exports'], funct
   QUnit.module('JSHint - controllers/login.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/login.js should pass jshint.\ncontrollers/login.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 11, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
+    assert.ok(false, 'controllers/login.js should pass jshint.\ncontrollers/login.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/login.js: line 5, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
   });
 });
 define('itp405-final-project/tests/controllers/register.jshint', ['exports'], function (exports) {
@@ -41,6 +50,24 @@ define('itp405-final-project/tests/controllers/register.jshint', ['exports'], fu
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(false, 'controllers/register.js should pass jshint.\ncontrollers/register.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/register.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/register.js: line 27, col 11, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
+  });
+});
+define('itp405-final-project/tests/controllers/results/events.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/results/events.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/results/events.js should pass jshint.\ncontrollers/results/events.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/results/events.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+  });
+});
+define('itp405-final-project/tests/controllers/results/players.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - controllers/results/players.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'controllers/results/players.js should pass jshint.\ncontrollers/results/players.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/results/players.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
   });
 });
 define('itp405-final-project/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
@@ -287,6 +314,15 @@ define('itp405-final-project/tests/integration/components/nav-bar-test.jshint', 
     assert.ok(true, 'integration/components/nav-bar-test.js should pass jshint.');
   });
 });
+define('itp405-final-project/tests/models/event.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - models/event.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'models/event.js should pass jshint.\nmodels/event.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nmodels/event.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nmodels/event.js: line 4, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
+  });
+});
 define('itp405-final-project/tests/models/user.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -311,7 +347,16 @@ define('itp405-final-project/tests/router.jshint', ['exports'], function (export
   QUnit.module('JSHint - router.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 15, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n4 errors');
+    assert.ok(false, 'router.js should pass jshint.\nrouter.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nrouter.js: line 4, col 1, \'const\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\nrouter.js: line 20, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n4 errors');
+  });
+});
+define('itp405-final-project/tests/routes/details.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - routes/details.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/details.js should pass jshint.\nroutes/details.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/details.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/details.js: line 4, col 1, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
   });
 });
 define('itp405-final-project/tests/routes/explore.jshint', ['exports'], function (exports) {
@@ -320,7 +365,7 @@ define('itp405-final-project/tests/routes/explore.jshint', ['exports'], function
   QUnit.module('JSHint - routes/explore.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/explore.js should pass jshint.\nroutes/explore.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/explore.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+    assert.ok(false, 'routes/explore.js should pass jshint.\nroutes/explore.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/explore.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\nroutes/explore.js: line 4, col 5, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n3 errors');
   });
 });
 define('itp405-final-project/tests/routes/login.jshint', ['exports'], function (exports) {
@@ -361,6 +406,28 @@ define('itp405-final-project/tests/test-helper.jshint', ['exports'], function (e
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass jshint.');
+  });
+});
+define('itp405-final-project/tests/unit/controllers/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:details', 'Unit | Controller | details', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('itp405-final-project/tests/unit/controllers/details-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/controllers/details-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/details-test.js should pass jshint.');
   });
 });
 define('itp405-final-project/tests/unit/controllers/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -429,6 +496,50 @@ define('itp405-final-project/tests/unit/controllers/register-test.jshint', ['exp
     assert.ok(true, 'unit/controllers/register-test.js should pass jshint.');
   });
 });
+define('itp405-final-project/tests/unit/controllers/results/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:results/events', 'Unit | Controller | results/events', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('itp405-final-project/tests/unit/controllers/results/events-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/controllers/results/events-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/results/events-test.js should pass jshint.');
+  });
+});
+define('itp405-final-project/tests/unit/controllers/results/players-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:results/players', 'Unit | Controller | results/players', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('itp405-final-project/tests/unit/controllers/results/players-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/controllers/results/players-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/results/players-test.js should pass jshint.');
+  });
+});
 define('itp405-final-project/tests/unit/models/user-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('user', 'Unit | Model | user', {
@@ -449,6 +560,27 @@ define('itp405-final-project/tests/unit/models/user-test.jshint', ['exports'], f
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/user-test.js should pass jshint.');
+  });
+});
+define('itp405-final-project/tests/unit/routes/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:details', 'Unit | Route | details', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('itp405-final-project/tests/unit/routes/details-test.jshint', ['exports'], function (exports) {
+  'use strict';
+
+  QUnit.module('JSHint - unit/routes/details-test.js');
+  QUnit.test('should pass jshint', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/details-test.js should pass jshint.');
   });
 });
 define('itp405-final-project/tests/unit/routes/explore-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

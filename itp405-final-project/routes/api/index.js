@@ -14,7 +14,12 @@ router.get('/me', function(req, res){
 });
 
 router.get('/events', EventController.getEvents);
+router.get('/events/:id', EventController.getEventDetails);
 router.get('/users', UserController.getUsers);
 router.get('/users_events', User_EventController.getUserEvents);
 
+router.get('/creator/:id', EventController.getCreator);
+
+router.get('/query/events', EventController.getEventsQuery);
+router.get('/query/players', UserController.getPlayersQuery);
 module.exports = router;

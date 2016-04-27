@@ -15,6 +15,7 @@
 								<label>Password</label>
 						{{input type="password" value=password placeholder="Enter Passsword Here.." class="form-control"}}
 							</div>
+							<input type="submit" value="Submit" hidden="hidden" {{action 'loginUser' }}>
 						</div>
 						<button type="button" class="btn btn-lg btn-info" {{action 'loginUser' }} >Login</button>
 						<p class="text-center">Don't have an account? {{#link-to 'register'}}Register{{/link-to}}</p>		

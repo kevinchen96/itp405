@@ -1,6 +1,8 @@
 var models = require('../models');
 var Event = require('../models/event');
 var User = require('../models/user');
+
+var sequelize = require('./../config/sequelize');
 var EventController = {};
 
 
@@ -80,10 +82,77 @@ EventController.getEvents = function (req, res) {
       model: User
   	}]
   }).then(function (response) {
-    res.json(response);
+  	res.json({
+         event: response
+    });
   });
 };
 
+//Get specific event
+EventController.getEventDetails = function (req, res) {
+  Event.findOne({
+    where: {
+      id: req.params.id
+  	},
+  	include: [
+    {
+      model: User
+  	}]
+  }).then(function (response) {
+  	res.json({
+         event: response
+    });
+  });
+};
+
+EventController.getCreator = function (req, res) {
+	console.log("here");
+  Event.findOne({
+    where: {
+      id: req.params.id
+  	},
+  	include: [
+    {
+      model: User,
+      through: {
+        // attributes: ['createdAt', 'startedAt', 'finishedAt']
+          where: {creator: true}
+      }
+  	}]
+  }).then(function (response) {
+  	res.json({
+         event: response
+    });
+  });
+};
+
+EventController.getEventsQuery = function(req, res){
+  var queries = req.query.queries;
+  var query = "SELECT * FROM events WHERE ";
+  query += "description LIKE '%" + queries[0] + "%' ";
+  console.log(query)
+  for(var i = 1; i < queries.length; i++){
+    query += "OR description LIKE '%"  + queries[i] + "%' ";
+  }
+  query += "OR name LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR name LIKE '%"  + queries[i] + "%' ";
+  }
+  query += "OR address LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR address LIKE '%"  + queries[i] + "%'";
+  }
+  query += "OR city LIKE '%" + queries[0] + "%' ";
+  for(var i = 1; i < queries.length; i++){
+    query += "OR city LIKE '%"  + queries[i] + "%'";
+  }
+  sequelize.query(query, { type: sequelize.QueryTypes.SELECT})
+  .then(function(response) {
+    res.json({
+         event: response
+    });
+  });
+}
 // BookController.updateStatus = function (req, res) {
 //   var userId = req.user.id;
 //   var bookId = req.body.bookId;
