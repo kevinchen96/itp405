@@ -1,1 +1,82 @@
-{{outlet}}
+    <div class="container main">
+        <div class="row event-row">
+            <div class="col-xs-12 event-details">
+                <div class="row">
+                    <div class="col-sm-9 event-description">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>{{user.first_name}} {{user.last_name}}</h3>
+                                <p>NTRP Rating: {{user.rating}}</p>
+                                <p>{{user.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-10">
+	                <ul class="nav nav-tabs">
+					  <li class="{{if current 'active'}}"><a {{action 'setCurrent'}}>Current Events</a></li>
+					  <li class="{{if created 'active'}}"><a {{action 'setCreated'}}>Created Events</a></li>
+					  <li class="{{if past 'active'}}"><a {{action 'setPast' }}>Past Events</a></li>
+					</ul>
+					{{#if current}}
+						<div class="event-description">
+							{{#if currentEvents}}
+								{{#each currentEvents as |event|}}
+									<div class="results row-event">
+							       		{{#link-to 'details' event.id}}
+							                <a href="" style="height: 120px; width = 500px;">
+							                    <h4>{{event.name}}</h4>  
+							                    <p>Location: {{ event.city }}, {{event.state}}</p>
+							                    <span class="clearfix"></span>
+							                 </a>
+							            {{/link-to}}
+						            </div>
+								{{/each}}
+							{{/if}}
+							{{unless currentEvents 'No Events scheduled. Go explore!'}}
+						</div>
+					{{/if}}
+					{{#if created}}
+						<div class="event-description">
+							{{#if createdEvents}}
+								{{#each createdEvents as |event|}}
+									<div class="results row-event">
+							       		{{#link-to 'details' event.id}}
+							                <a href="" style="height: 120px; width = 500px;">
+							                    <h4>{{event.name}}</h4>  
+							                    <p>Location: {{ event.city }}, {{event.state}}</p>
+							                    <span class="clearfix"></span>
+							                 </a>
+							            {{/link-to}}
+						            </div>							
+							    {{/each}}
+							{{/if}}
+							{{unless createdEvents 'No Events created. Create an event!'}}
+						</div>
+					{{/if}}
+					{{#if past}}
+						<div class="event-description">
+							{{#if pastEvents}}
+								{{#each pastEvents as |event|}}
+									<div class="results row-event">
+							       		{{#link-to 'details' event.id}}
+							                <a href="" style="height: 120px; width = 500px;">
+							                    <h4>{{event.name}}</h4>  
+							                    <p>Location: {{ event.city }}, {{event.state}}</p>
+							                    <span class="clearfix"></span>
+							                 </a>
+							            {{/link-to}}
+						            </div>
+								{{/each}}
+							{{/if}}
+							{{unless pastEvents 'No Events played. Go explore!'}}
+						</div>
+					{{/if}}
+	            </div><!-- /.event-details -->
+	            <div class="col-xs-2">
+	            	{{#link-to 'createEvent'}}<button type="button" class="btn btn-primary"  >+ Create Event</button>{{/link-to}}
+	            </div>
+            </div>
+        </div><!-- /.event -->
+    </div><!-- /.container, .main -->

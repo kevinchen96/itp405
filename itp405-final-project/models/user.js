@@ -8,7 +8,8 @@ var User = sequelize.define('user', {
 	id: {
 		field: 'user_id',
 		type: Sequelize.INTEGER,
-		primaryKey: true
+		primaryKey: true,
+		autoIncrement: true
 	},
 	first_name: {
 		field: 'first_name',

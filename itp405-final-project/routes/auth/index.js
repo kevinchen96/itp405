@@ -19,6 +19,8 @@ router.post('/register', function(req, res) {
 		hash: CryptoJS.MD5(req.body.password).toString(),
 		admin: admin
 	}).then(function (response){
+		console.log("I am here");
+		console.log(response);
 		res.sendStatus(200);
 	});
 });

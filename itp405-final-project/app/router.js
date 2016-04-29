@@ -15,6 +15,8 @@ Router.map(function() {
     this.route('events');
     this.route('players');
   });
+  this.route('player', {path: '/player/:user_id'});
+  this.route('createEvent');
 });
 
 export default Router;

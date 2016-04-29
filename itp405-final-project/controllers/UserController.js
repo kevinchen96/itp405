@@ -75,6 +75,34 @@ var UserController = {};
 //   );
 // };
 
+
+UserController.checkIfCreator = function(req, res){
+  if(req.decoded.id == req.params.id){
+    res.json({
+      isCreator: true
+    });
+  }
+  else{
+    res.json({
+      isCreator: false
+    });
+  }
+}
+
+UserController.getMe = function(req, res){
+  User.findOne({
+    where: {
+     id: req.decoded.id
+    },
+    include: [
+    {
+      model: Event
+    }]
+  }).then(function (response) {
+    res.json(response);
+  });
+}
+
 //Get all events
 UserController.getUsers = function (req, res) {
   User.findAll({
@@ -86,6 +114,23 @@ UserController.getUsers = function (req, res) {
     res.json(response);
   });
 };
+
+UserController.getUser = function (req, res) {
+  User.findOne({
+    where:{
+      id: req.params.id
+    },
+    include: [
+    {
+      model: Event
+    }]
+  }).then(function (response) {
+    res.json({
+      user: response
+    });
+  });
+};
+
 
 UserController.getPlayersQuery = function(req, res){
   var queries = req.query.queries;

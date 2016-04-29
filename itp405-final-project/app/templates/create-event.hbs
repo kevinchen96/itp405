@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="col-lg-10 well">
+		<h1>Create Event</h1>
+		<hr>
+		<div class="row">
+			<form>
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-sm-6 form-group">
+							<label>Event Name</label>
+					{{input type="text" value=name placeholder="Enter Event Name here..." class="form-control"}}
+						</div>
+						<div class="col-sm-3 form-group">
+							<label>Date</label>
+							{{bs-datetimepicker minDate=mindate date=mydate format='YYYY-MM-DD' updateDate=(action (mut mydate))}}
+						</div>	
+						<div class="col-sm-3 form-group time">
+							<label>Time</label>
+							{{time-input value=startTime format='h:mm a' action='timeChanged' class='time-edit' input-class="form-control"}}
+						</div>	
+					</div>	
+					<div class="row">
+						<div class="col-sm-12 form-group">
+							<label>Description (optional)</label>
+							{{textarea placeholder="Enter Address Here.." value=description rows="3" class="form-control"}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 form-group">
+							<label>Address</label>
+							{{textarea placeholder="Enter Address Here.." rows="3" class="form-control" value=address}}
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-sm-4 form-group">
+							<label>City</label>
+							{{input type="text" placeholder="Enter City Name Here.." class="form-control" value=city}}
+						</div>	
+						<div class="col-sm-2 form-group">
+							<label>State</label>
+							{{input type="text" placeholder="CA" class="form-control" value=state}}
+						</div>	
+						<div class="col-sm-2 form-group">
+							<label>Zip</label>
+							{{input type="text" placeholder="Zip Code" class="form-control" value=zip}}
+						</div>	
+					</div>	
+					<input type="submit" value="Submit" hidden="hidden" {{action 'createEvent' }}>
+					<div class="row">
+						<div class="col-sm-offset-4 col-sm-2 form-group">
+							<button type="button" class="btn btn-lg btn-primary" {{action 'createEvent' }} >Create</button>	
+						</div>
+						<div class="col-sm-2 form-group">
+							<button type="button" class="btn btn-lg btn-default" {{action 'cancel' }} >Cancel</button>	
+						</div>
+					</div>
+				</div>
+			</form> 
+		</div>
+	</div>
+</div>

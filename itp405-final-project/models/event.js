@@ -8,7 +8,8 @@ var Event = sequelize.define('event', {
 	id: {
 		field: 'event_id',
 		type: Sequelize.INTEGER,
-		primaryKey: true
+		primaryKey: true,
+		autoIncrement: true
 	},
 	name: {
 		field: 'name',

@@ -6,18 +6,18 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <h3>{{model.name}}</h3>
-                                <h5>Created By: {{creator}}</h5>
+                                <h5>Created By: {{creator.first_name}} {{creator.last_name}}</h5>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3 col-xs-6">
                                 <h4>Date</h4>
-                                <p>{{ model.date }}</p>
+                                <p>{{ date }}</p>
                             </div>
                             <div class="col-sm-3 col-xs-6">
                                 <h4>Time</h4>
-                                <p>{{ model.time }}</p>
+                                <p>{{ time }}</p>
                             </div>
                             <div class="col-sm-3 col-xs-6">
                                 <h4>Address</h4>
@@ -38,45 +38,53 @@
                         </div>
                     </div><!-- /.event-description -->
                 </div>
-                <ul class="nav nav-tabs">
-				  <li class="{{if description 'active'}}"><a {{action 'setDescription'}}>Description</a></li>
-				  <li class="{{unless description 'active'}}"><a {{action 'setPlayers' }}>Current Players</a></li>
-				</ul>
-				{{#if description}}
-				<div class="col-sm-9 event-description">
-				{{#if model.description}}
-					{{model.description}}
-				{{/if}}
-				{{unless model.description 'No Description provided.'}}
-				</div>
-				{{/if}}
-				{{#unless description}}
-				<div class="col-sm-9 event-description">
-				{{#if model.users}}
-					<table class="table">
-					  <thead>
-					    <tr>
-					      <th>First Name</th>
-					      <th>Last Name</th>
-					      <th>NTRP</th>
-					    </tr>
-					  </thead>
-					  <tbody>
+                <div class="col-xs-10">
+                    <ul class="nav nav-tabs">
+    				  <li class="{{if description 'active'}}"><a {{action 'setDescription'}}>Description</a></li>
+    				  <li class="{{unless description 'active'}}"><a {{action 'setCurrent' }}>Current Players</a></li>
+    				</ul>
+    				{{#if description}}
+        				<div class="col-sm-9 event-description">
+            				{{#if model.description}}
+            					{{model.description}}
+            				{{/if}}
+            				{{unless model.description 'No Description provided.'}}
+        				</div>
+    				{{/if}}
+    				{{#unless description}}
+    				    <div class="col-sm-9 event-description">
+        				{{#if model.users}}
+        					<table class="table">
+        					  <thead>
+        					    <tr>
+        					      <th>First Name</th>
+        					      <th>Last Name</th>
+        					      <th>NTRP</th>
+        					    </tr>
+        					  </thead>
+        					  <tbody>
 
-					{{#each model.users as |player|}}
-					    <tr>
-					      <td>{{player.first_name}}</td>
-					      <td>{{player.last_name}}</td>
-					      <td>{{player.rating}}</td>
-					    </tr>
-					 {{/each}}
-					  </tbody>
-					</table>
-				{{/if}}
-				{{unless model.users 'No participants at this time'}}
-				</div>
-				{{/unless}}
-            </div><!-- /.event-details -->
-            
+        					{{#each model.users as |player|}}
+        					    <tr>
+        					      <td>{{player.first_name}}</td>
+        					      <td>{{player.last_name}}</td>
+        					      <td>{{player.rating}}</td>
+        					    </tr>
+        					 {{/each}}
+        					  </tbody>
+        					</table>
+        				{{/if}}
+    				    {{unless model.users 'No participants at this time'}}
+    				    </div>
+    				{{/unless}}
+                </div><!-- /.event-details -->
+                {{#if notOver}}
+                    {{#unless isUser}}
+                        <div class="col-xs-2">
+                            <button type="button" class="btn btn-primary" disabled={{isJoined}} {{action 'joinEvent'}}>{{if isJoined 'Joined'}} {{unless isJoined 'Join Event'}}</button>
+                        </div>
+                    {{/unless}}
+                {{/if}}
+            </div>
         </div><!-- /.event-row -->
     </div><!-- /.container, .main -->

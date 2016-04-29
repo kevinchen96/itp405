@@ -73,7 +73,65 @@ var EventController = {};
 //       }
 //   );
 // };
+EventController.checkUser = function(req, res){
+  Event.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [
+    {
+      model: User,
+      through: {
+        // attributes: ['createdAt', 'startedAt', 'finishedAt']
+          where: {user_id: req.decoded.id}
+      }
+    }]
+  }).then(function (response) {
+    res.json({
+         event: response
+    });
+  });
+}
 
+EventController.addUser = function(req, res){
+  Event.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(function (response) {
+    User.findOne({
+      where: {
+       id: req.decoded.id
+      }
+    }).then(function (user) {
+      user.addEvent(response, { creator: false });
+    });
+    res.json(response);
+  });
+}
+
+EventController.createEvent = function(req, res){
+
+  Event.create({
+    name: req.body.name,
+    description: req.body.description,
+    address: req.body.address,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    date: req.body.date,
+    time: req.body.time
+  }).then(function (response) {
+    User.findOne({
+      where: {
+       id: req.decoded.id
+      }
+    }).then(function (user) {
+      user.addEvent(response, { creator: true });
+    });
+    res.json(response);
+  });
+}
 //Get all events
 EventController.getEvents = function (req, res) {
   Event.findAll({
@@ -107,6 +165,7 @@ EventController.getEventDetails = function (req, res) {
 
 EventController.getCreator = function (req, res) {
 	console.log("here");
+  console.log(req.params.id);
   Event.findOne({
     where: {
       id: req.params.id

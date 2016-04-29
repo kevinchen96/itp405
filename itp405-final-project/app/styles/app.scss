@@ -11,6 +11,10 @@ body {
 	height: 500px;
 }
 
+.jumbotron h1{
+    color: #FFFFFF;
+}
+
 .search {
 	margin-top: 7px;
 	margin-bottom: 0px;
@@ -75,25 +79,6 @@ body {
     margin-bottom: 2px;
 }
 
-.btn-default {
-    background-color: #6161b4;
-    color: white;
-    padding: 7px 10px;
-}
-
-.btn-default:hover, .btn-default:focus {
-    background-color: #4a4a9a;
-    color: white;
-}
-
-.btn-default:disabled {
-    background-color: grey;
-}
-
-.btn-default:disabled:hover {
-    background-color: #818181;
-}
-
 .event-details .btn-default {
     width: 110px;
 }
@@ -121,3 +106,30 @@ body {
 a:hover {
 	cursor: pointer;
 }
+
+//profile
+.row-event {
+    border-style: groove;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+//wells
+.well {
+    background-color: #FFFFFF;
+}
+
+//errors
+.invalid input{
+    border-color: #a94442;
+}
+
+.footer 
+{
+position: relative;
+margin-top: -35px; /* negative value of footer height */
+clear:both;
+padding-top:20px;
+padding-bottom:20px;
+color:#fff;
+} 
