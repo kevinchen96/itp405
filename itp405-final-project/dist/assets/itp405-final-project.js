@@ -1017,7 +1017,7 @@ define('itp405-final-project/routes/player', ['exports', 'ember'], function (exp
       var mod = this;
       return this.store.findRecord('user', params.user_id).then(function (response) {
         mod.controllerFor('player').set('model', response);
-        mod.transitionTo('player/', params.user_id);
+        mod.transitionTo('player', params.user_id);
       }, function (response) {
 
         mod.controllerFor('player').set('error', response.errors);
