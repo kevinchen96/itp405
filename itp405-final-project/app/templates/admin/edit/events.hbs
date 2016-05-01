@@ -1,0 +1,100 @@
+<div class="container">
+	{{#unless isAdmin}}
+		<h1>{{message}}</h1>
+	{{/unless}}
+	{{#if errors}}
+		 <ul>
+		{{#each errors.id as |error|}}
+		<li class="error">{{error}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if error}}
+		<ul>
+			{{#each error.name as |error|}}
+				<li class="error"> {{error}}</li>
+			{{/each}}
+			{{#each error.address as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.city as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.state as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.zip as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.date as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.time as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+	{{#unless errors}}
+	{{#if isAdmin}}
+		<div class="col-lg-10 well">
+			<h1>Edit Event</h1>
+			<hr>
+			<div class="row">
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Event Name</label>
+						{{input type="text" value=model.name placeholder="Enter Event Name here..." class="form-control"}}
+							</div>
+							<div class="col-sm-3 form-group">
+								<label>Date</label>
+								{{bs-datetimepicker date=mydate format='YYYY-MM-DD' updateDate=(action (mut mydate))}}
+							</div>	
+							<div class="col-sm-3 form-group time">
+								<label>Time</label>
+								{{time-input value=startTime format='h:mm a' action='timeChanged' class='time-edit' input-class="form-control"}}
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-sm-12 form-group">
+								<label>Description (optional)</label>
+								{{textarea placeholder="Enter Address Here.." value=model.description rows="3" class="form-control"}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 form-group">
+								<label>Address</label>
+								{{textarea placeholder="Enter Address Here.." rows="3" class="form-control" value=model.address}}
+							</div>
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City</label>
+								{{input type="text" placeholder="Enter City Name Here.." class="form-control" value=model.city}}
+							</div>	
+							<div class="col-sm-2 form-group">
+								<label>State</label>
+								{{input type="text" placeholder="CA" class="form-control" value=model.state}}
+							</div>	
+							<div class="col-sm-2 form-group">
+								<label>Zip</label>
+								{{input type="text" placeholder="Zip Code" class="form-control" value=model.zip}}
+							</div>	
+						</div>	
+						<input type="submit" value="Submit" hidden="hidden" {{action 'editEvent' }}>
+						<div class="row">
+							<div class="col-sm-offset-4 col-sm-2 form-group">
+								<button type="button" class="btn btn-lg btn-primary" {{action 'editEvent' }} >Edit</button>	
+							</div>
+							<div class="col-sm-2 form-group">
+								{{#link-to 'admin.events'}} <button type="button" class="btn btn-lg btn-default">Cancel</button> {{/link-to}}
+							</div>
+						</div>
+					</div>
+				</form> 
+			</div>
+		</div>
+	{{/if}}
+	{{/unless}}
+</div>

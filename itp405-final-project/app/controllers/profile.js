@@ -22,6 +22,7 @@ export default Ember.Controller.extend({
 		 			mod.get('createdEvents').addObject(response.events[i]);		 		
 		 		}
 		 		var date2 = new Date(response.events[i].date);
+				date2.setTime( date2.getTime() + 86400000 );
 		 		console.log(date2.getTime());
 		 		if(date2.getTime() >= date.getTime()){
 		 			mod.get('currentEvents').addObject(response.events[i]);

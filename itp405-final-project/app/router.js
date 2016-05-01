@@ -17,6 +17,17 @@ Router.map(function() {
   });
   this.route('player', {path: '/player/:user_id'});
   this.route('createEvent');
+
+  this.route('admin', function() {
+    this.route('users');
+    this.route('events');
+    this.route('edit', function() {
+      this.route('events', {path: '/events/:event_id'});
+      this.route('users', {path: '/users/:user_id'});
+    });
+  });
+
+  
 });
 
 export default Router;

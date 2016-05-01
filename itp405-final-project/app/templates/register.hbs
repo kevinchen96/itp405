@@ -1,4 +1,23 @@
 <div class="container">
+{{#if error}}
+		<ul>
+		{{#each error as |error|}}
+			<li class="error"> {{error.message}}</li>
+		{{/each}}
+		{{#each error.first_name as |error|}}
+			<li class="error"> {{error}}</li>
+		{{/each}}
+		{{#each error.last_name as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		{{#each error.email as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		{{#each error.rating as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
 	<div class="col-lg-8 well">
 		<h1>Registration Form</h1>
 		<hr>

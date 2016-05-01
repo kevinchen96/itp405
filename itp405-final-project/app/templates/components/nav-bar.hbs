@@ -39,6 +39,10 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{name}}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
             	{{#link-to 'profile' tagName="li"}}<a href="">My Profile</a>{{/link-to}}
+              {{#if isAdmin}}
+                {{#link-to 'admin.users' tagName="li"}}<a href="">Users</a>{{/link-to}}
+                {{#link-to 'admin.events' tagName="li"}}<a href="">Events</a>{{/link-to}}
+              {{/if}}
                   <li><a href="" {{action 'logout'}}>Logout</a></li>
                 </ul>
             </li>

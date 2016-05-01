@@ -1,4 +1,29 @@
 <div class="container">
+	{{#if error}}
+		<ul>
+			{{#each error.name as |error|}}
+				<li class="error"> {{error}}</li>
+			{{/each}}
+			{{#each error.address as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.city as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.state as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.zip as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.date as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+			{{#each error.time as |error|}}
+				<li class="error">{{error}}</li>
+			{{/each}}
+		</ul>
+	{{/if}}
 	<div class="col-lg-10 well">
 		<h1>Create Event</h1>
 		<hr>
@@ -16,7 +41,7 @@
 						</div>	
 						<div class="col-sm-3 form-group time">
 							<label>Time</label>
-							{{time-input value=startTime format='h:mm a' action='timeChanged' class='time-edit' input-class="form-control"}}
+							{{time-input value=startTime format='h:mm a' action='timeChanged' class='time-edit' input-class="form-control" placeholder="3:30 pm"}}
 						</div>	
 					</div>	
 					<div class="row">

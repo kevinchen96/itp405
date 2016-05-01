@@ -1,4 +1,12 @@
     <div class="container main">
+    {{#if error}}
+    <ul>
+		{{#each error.id as |error|}}
+		<li class="error">{{error}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#unless error}}
         <div class="row event-row">
             <div class="col-xs-12 event-details">
                 <div class="row">
@@ -76,4 +84,5 @@
 	            </div><!-- /.event-details -->
             </div>
         </div><!-- /.event -->
-    </div><!-- /.container, .main -->
+     {{/unless}} 
+ </div><!-- /.container, .main -->

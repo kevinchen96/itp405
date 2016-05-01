@@ -1,0 +1,1 @@
+/Users/Kevin/itp405/itp405-final-project/tmp/broccoli_merge_trees-input_base_path-4u7Bduga.tmp/2/itp405-final-project/tests/unit/routes/create-event-test.jshint.js

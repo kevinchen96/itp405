@@ -1,0 +1,82 @@
+<div class="container">
+	{{#unless isAdmin}}
+		<h1>{{message}}</h1>
+	{{/unless}}
+	{{#if errors}}
+		 <ul>
+		{{#each errors.id as |error|}}
+		<li class="error">{{error}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
+	{{#if error}}
+		<ul>
+		{{#each error.id as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		{{#each error.first_name as |error|}}
+			<li class="error"> {{error}}</li>
+		{{/each}}
+		{{#each error.last_name as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		{{#each error.email as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		{{#each error.rating as |error|}}
+			<li class="error">{{error}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
+	{{#unless errors}}
+	{{#if isAdmin}}
+		<div class="col-lg-8 well">
+			<h1>Registration Form</h1>
+			<hr>
+			<div class="row">
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+						    <div class="col-sm-6 form-group">
+						        <label>First Name</label>
+						          {{input type="text" value=model.first_name class="form-control" placeholder="Enter your first name"}}
+						    </div>
+						</div>
+						<div class="row">
+						    <div class="col-sm-6 form-group">
+						        <label>Last Name</label>
+						          {{input type="text" value=model.last_name class="form-control" placeholder="Enter your last name"}}
+					        </div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-sm-6 form-group has-feedback {{if model.email (if emailValid 'has-success')}} {{if model.email (if emailInvalid 'has-error')}}">
+					        	<label>Email</label>
+					          	{{input type="text" value=model.email class="form-control" placeholder="Enter your email"}}
+					          	{{#if model.email}}
+					          		{{#if emailValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
+					          		{{#if emailInvalid}}<span class="glyphicon glyphicon-remove form-control-feedback"></span>{{/if}}
+					          	{{/if}}
+					        </div>
+					    </div>
+					    <div class="row">
+						    <div class="col-sm-6 form-group">
+						        <label>NTRP Rating</label>
+						          {{input type="text" value=model.rating class="form-control" placeholder="Enter your NTRP Rating (1.0, 2.0, 3.5 ...)"}}
+					        </div>
+					    </div>
+					    <input type="submit" value="Submit" hidden="hidden" {{action 'editUser' }}>
+					    <div class="row">
+					    	<div class="col-sm-offset-4 col-sm-2 form-group">
+				            	<button type="submit" class="btn btn-lg btn-primary" {{action 'editUser' }} disabled="{{unless emailValid 'disabled'}}">Edit</button>
+			            	</div>	
+				            <div class="col-sm-2 form-group">
+									{{#link-to 'admin.users'}} <button type="button" class="btn btn-lg btn-default">Cancel</button> {{/link-to}}
+							</div>
+						</div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	{{/if}}
+	{{/unless}}
+</div>

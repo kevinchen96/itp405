@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 		}
 	}),
 	isEvent: Ember.computed.equal('filter', 'events'),
+	isAdmin: false,
 	name: Ember.computed(function(){
 		var mod = this;
 		$.ajax({
@@ -18,6 +19,9 @@ export default Ember.Component.extend({
 		      url: '/api/me'
 		 }).then(function(response){
 		 	mod.set('name', `${response.first_name} ${response.last_name}`);
+		 	if(response.admin){
+		 		mod.set('isAdmin', true);
+		 	}
 		 });
 	}),
 

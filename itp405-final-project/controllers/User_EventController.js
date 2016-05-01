@@ -2,158 +2,125 @@ var models = require('../models');
 var User = require('../models/user');
 var Event = require('../models/event');
 var User_Event = require('../models/user_event');
-
+var Validator = require('validatorjs');
 var User_EventController = {};
 
-
-// BookController.create = function (req, res) {
-//   var userId = req.user.id;
-//   Book.findOrCreate({
-//     where: {
-//       isbn: req.body.isbn,
-//       source: req.body.source,
-//       title: req.body.title,
-//       authors: req.body.authors,
-//       description: req.body.description,
-//       publisher: req.body.publisher,
-//       pages: req.body.pages,
-//       dateWritten: req.body.dateWritten,
-//       type: req.body.type
-//     }
-//   }).spread(function (book, created) {
-//     var bookId = book.dataValues.id;
-//     ReadingList.create({
-//       userId: userId,
-//       bookId: bookId,
-//       status: 0
-//     }).then(function () {
-//       res.sendStatus(200);
-//     });
-//   });
-// };
-
-// // getting the users booklist
-// BookController.getUserBookList = function (req, res) {
-
-//   var userId = req.user.id;
-//   ReadingList.findAll({
-//     where: {
-//       userId: userId
-//     },
-//     include: [{
-//       model: Book
-//     }]
-//   }).then(function (response) {
-//     res.json(response);
-//   })
-// };
-
-// // getting a specific book in a user's booklist
-// BookController.getBookInBooklist = function(req, res){
-//   var userId = req.user.id;
-//   var isbn = req.params.isbn;
-
-//   ReadingList.findAll({
-//     where: {
-//       userId: userId
-//     },
-//     include: [{
-//       model: Book,
-//       where: {
-//         isbn: isbn
-//       }
-//     }]
-//   }).then(
-//       function(response){
-//         response.length > 0 ? res.json(response[0]) : res.sendStatus(404);
-//       },
-//       function(err){
-//         console.log("Error in getBookInBooklist: " + err);
-//         res.sendStatus(422);
-//       }
-//   );
-// };
 
 //Get all events
 User_EventController.getUserEvents = function (req, res) {
   User_Event.findAll({
-  	include: [
-  	// {
-   //    model: User,
-   //  },
-    {
-      model: Event
-  	}]
   }).then(function (response) {
     res.json(response);
   });
 };
 
-// BookController.updateStatus = function (req, res) {
-//   var userId = req.user.id;
-//   var bookId = req.body.bookId;
-//   ReadingList.update(
-//       {
-//         status: req.body.status
-//       },
-//       {
-//         where: {
-//           userId: userId,
-//           bookId: bookId
-//       }
-//   }).then(function (response) {
-//     res.send('Updated Status');
-//   });
-// };
+User_EventController.deleteEvent = function (req,res){
+  var rules = {
+    id: 'required|numeric',
+  };
+  var data = {
+    id: req.params.id
+  };
+  var validation = new Validator(data, rules);
+ 
+  if(validation.fails()){
+    res.status(400).send({ 
+      errors: {
+        id: validation.errors.get('id')
+      }
+    });
+  }  
+  else{
+    User_Event.destroy({
+      where: {
+        event_id: req.params.id
+      }
+    }).then(function (response) {
+      Event.destroy({
+        where: {
+          event_id: req.params.id
+        }
+      }).then(function(response){
+        console.log(response);
+      });
+      res.json(response);
+    });
+  }
 
-// // change this to an or to account for if the person sent the isbn
-// BookController.getBookByISBN = function (req, res) {
-//   var isbn = req.params.isbn;
-//   Book.findOne({
-//     where: {
-//       isbn: isbn
-//     },
-//     include: [Comment]
-//   }).then(function (response) {
-//     res.send(response);
-//   });
-// };
+}
 
-// BookController.getBookIdByISBN = function (req, res) {
-//   var isbn = req.params.isbn;
-//   Book.findOne({
-//     where: {
-//       isbn: isbn
-//     }
-//   }).then(function (response) {
-//     if(response.id){
-//       res.json({id: response.id});
-//     } else {
-//       res.sendStatus(404);
-//     }
-//   });
-// };
+User_EventController.deleteUser = function (req,res){
+  var rules = {
+    id: 'required|numeric',
+  };
+  var data = {
+    id: req.params.id
+  };
+  var validation = new Validator(data, rules);
+ 
+  if(validation.fails()){
+    res.status(400).send({ 
+      errors: {
+        id: validation.errors.get('id')
+      }
+    });
+  }  
+  else{
+    User_Event.findAll({
+      where: {
+        creator: true,
+        user_id: req.params.id
+      }
+    }).then(function (response){
+      console.log(response);
+      if(response.length == 0){
+        User.destroy({
+          where: {
+            id: req.params.id
+          }
+        }).then(function (response1){
+          res.json(response1);
+        });
+      }
+      else{
+        for(var i = 0; i < response.length; i++){
+        (function() {
+          var j = i;
+          User_Event.destroy({
+            where: {
+              event_id: response[j].dataValues.event_id
+            }
+          }).then(function(response2){
+            console.log(response);
+            console.log(i);
+            Event.destroy({
+              where: {
+                id: response[j].dataValues.event_id,
+              }
+            }).then(function (response3) {
+              if(j == response.length-1){
+                User_Event.destroy({
+                  where: {
+                    user_id: req.params.id
+                  }
+                }).then(function (response4){
+                  User.destroy({
+                    where: {
+                      id: req.params.id
+                    }
+                  }).then(function (response5){
+                    res.json(response5);
+                  });
+                });
+              }
+          });
+        });
+        })();
+      }
+      }
+    });
+  }
+}
 
-// BookController.removeBook = function (req, res) {
-//   var listId = req.params.id;
-
-//   ReadingList.destroy({
-//     where: {
-//       id: listId
-//     }
-//   }).then(function (response) {
-//     res.send('Removed Book From List');
-//   });
-
-// };
-
-// BookController.query = function(req, res) {
-//   Amazon.query(req.params.query, function(err, response){
-//     if(err) res.sendStatus(404); // not found
-//     else{
-//       res.json(response);
-//     }
-//   });
-// };
 
 module.exports = User_EventController;

@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
 	createdEvents: [],
 	pastEvents: [],
 	loadEvents: function(){
+		console.log(this.get('model'));
 		var id = this.get('model.id');
 		var mod = this;
 		$.ajax({
@@ -26,6 +27,8 @@ export default Ember.Controller.extend({
 			 			mod.get('createdEvents').addObject(eventlist[i]);		 		
 			 		}
 			 		var date2 = new Date(eventlist[i].date);
+
+					date2.setTime( date2.getTime() + 86400000 );
 			 		console.log(date2.getTime());
 			 		if(date2.getTime() >= date.getTime()){
 			 			mod.get('currentEvents').addObject(eventlist[i]);

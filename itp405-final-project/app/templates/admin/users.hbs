@@ -1,0 +1,29 @@
+{{#unless isAdmin}}
+	<h1>{{message}}</h1>
+{{/unless}}
+{{#if isAdmin}}
+	<h1>Users</h1>
+
+	<table class="table table-bordered table-striped">
+	    <thead>
+	      <tr>
+	          <th>ID</th>
+	          <th>Name</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    {{#each model as |user|}}
+	        <tr>
+	            <th>{{user.id}}</th>
+	            <td>{{user.first_name}} {{user.last_name}}</td>
+	            <td><button class="btn btn-danger btn-xs" {{action 'deleteUser' user.id}}>Delete</button>
+	            {{#link-to 'admin.edit.users' user.id}}
+	            <button class="btn btn-success btn-xs">Edit</button>
+	            {{/link-to}}
+	            </td>
+	        </tr>
+	    {{/each}}
+
+	    </tbody>
+	</table>
+{{/if}}

@@ -17,6 +17,8 @@ export default Ember.Controller.extend({
 	            data: user
 	        }).then(function(response) {
 	        	window.location.href = "/profile";
+	        }, function(response){
+	        	mod.set('error', response.responseJSON.error);
 	        });
 	  	}
   	}

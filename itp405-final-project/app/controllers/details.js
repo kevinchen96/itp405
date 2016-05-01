@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
 	description: true,
 	notOver: true,
 	create: function(){	
+		console.log(this.get('model.date'));
 		var mod = this;
 		var id = this.get('model.id');
 		$.ajax({
@@ -49,7 +50,7 @@ export default Ember.Controller.extend({
 	date: Ember.computed('model.date', function(){
 		var date = new Date();
 		var date2 = new Date(this.get('model.date'));
-		
+		date2.setTime( date2.getTime() + 86400000 );
  		if(date2.getTime() < date.getTime()){
 
  			this.set('notOver', false);
@@ -58,7 +59,7 @@ export default Ember.Controller.extend({
  			this.set('notOver', true);
  		}
  		console.log(this.get('notOver'));
-		return moment(this.get('model.date')).format('MMMM Do YYYY');;
+		return moment(this.get('model.date')).add('days', 1).format('MMMM Do YYYY');;
 	}),
 	time: Ember.computed('model.time', function(){
 		var x = this.get('model.time');

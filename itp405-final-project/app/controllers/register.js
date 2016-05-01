@@ -25,6 +25,7 @@ export default Ember.Controller.extend({
 
   	actions:{
   		registerUser(){
+  			var mod = this;
 	  		var fname = this.get('first_name');
 	  		var lname = this.get('last_name');
 	  		var email = this.get('email');
@@ -48,7 +49,6 @@ export default Ember.Controller.extend({
 		        	email: email,
 		        	password: password
 		        };
-
 		        $.ajax({
 		            url: "/auth/login",
 		            type: "POST",
@@ -56,7 +56,10 @@ export default Ember.Controller.extend({
 		        }).then(function(response) {
 		        	window.location.href = "/profile";
 		        });
-	        });
+	        }, function(response){
+		        	console.log(response);
+			 	mod.set('error', response.responseJSON)
+			 });
 	  	}
   	}
 });

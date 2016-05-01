@@ -5,8 +5,27 @@ var jwt    = require('jsonwebtoken');
 var secret = require('../../config/secret');
 
 var User = require('../../models/user');
+var Validator = require('validatorjs');
 
 router.post('/register', function(req, res) {
+	var rules = {
+	    first_name: 'required|alpha',
+	    last_name: 'required|alpha',
+	    email: 'required|email',
+	    rating: 'required|numeric'
+	 };
+  var data = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    rating: req.body.rating
+  };
+  var validation = new Validator(data, rules);
+ 
+  if(validation.fails()){
+    res.status(400).send(validation.errors.all());
+  }  
+  else{
 	var admin = false;
 	if(req.body.first_name == "admin" && req.body.password =="laravel"){
 		admin = true;
@@ -22,7 +41,10 @@ router.post('/register', function(req, res) {
 		console.log("I am here");
 		console.log(response);
 		res.sendStatus(200);
+	}, function(response){
+		 return res.status(400).send(response.errors);
 	});
+	}
 });
 
 router.post('/login', function(req, res){
@@ -36,13 +58,13 @@ router.post('/login', function(req, res){
 	  	}
 	  }).then(function(response){
 	  	if(!response){
-	  		console.log("no user");
+	  		return res.status(400).send({error: "No user with that email!"});
 	  	}
 	  	else{
 	  		console.log(hash);
 	  		console.log(response);
 	  		if(response.dataValues.hash != hash){
-	  			console.log("wrong password");
+	  			return res.status(400).send({error: "Wrong password!"});
 	  		}
 	  		else{
 	  			var token = jwt.sign(response.dataValues, secret.secret, {

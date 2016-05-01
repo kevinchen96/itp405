@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
 			var mod = this;
 			var actualtime;
 			var date;
+			console.log(this.get('mydate'));
 			if($(".time-input").hasClass("invalid")||!this.get('time')){
 				actualtime = "invalid";
 			}
@@ -42,6 +43,8 @@ export default Ember.Controller.extend({
 		      }
 			 }).then(function(response){
 			 	window.location.href = "/profile";
+			 }, function(response){
+			 	mod.set('error', response.responseJSON)
 			 });
 		},
 		cancel(){
