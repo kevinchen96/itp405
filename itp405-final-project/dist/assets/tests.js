@@ -67,7 +67,7 @@ define('itp405-final-project/tests/controllers/create-event.jshint', ['exports']
   QUnit.module('JSHint - controllers/create-event.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/create-event.js should pass jshint.\ncontrollers/create-event.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/create-event.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/create-event.js: line 8, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/create-event.js: line 12, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/create-event.js: line 47, col 57, Missing semicolon.\ncontrollers/create-event.js: line 50, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n6 errors');
+    assert.ok(false, 'controllers/create-event.js should pass jshint.\ncontrollers/create-event.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/create-event.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/create-event.js: line 18, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/create-event.js: line 22, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\ncontrollers/create-event.js: line 59, col 57, Missing semicolon.\ncontrollers/create-event.js: line 62, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n6 errors');
   });
 });
 define('itp405-final-project/tests/controllers/details.jshint', ['exports'], function (exports) {
@@ -228,155 +228,6 @@ define('itp405-final-project/tests/helpers/start-app.jshint', ['exports'], funct
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
   });
 });
-define('itp405-final-project/tests/integration/components/nav-bar-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleForComponent)('nav-bar', 'Integration | Component | nav bar', {
-    integration: true
-  });
-
-  (0, _emberQunit.test)('it renders', function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-
-    this.render(Ember.HTMLBars.template((function () {
-      return {
-        meta: {
-          'fragmentReason': {
-            'name': 'missing-wrapper',
-            'problems': ['wrong-type']
-          },
-          'revision': 'Ember@2.4.5',
-          'loc': {
-            'source': null,
-            'start': {
-              'line': 1,
-              'column': 0
-            },
-            'end': {
-              'line': 1,
-              'column': 11
-            }
-          }
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createComment('');
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-          dom.insertBoundary(fragment, 0);
-          dom.insertBoundary(fragment, null);
-          return morphs;
-        },
-        statements: [['content', 'nav-bar', ['loc', [null, [1, 0], [1, 11]]]]],
-        locals: [],
-        templates: []
-      };
-    })()));
-
-    assert.equal(this.$().text().trim(), '');
-
-    // Template block usage:
-    this.render(Ember.HTMLBars.template((function () {
-      var child0 = (function () {
-        return {
-          meta: {
-            'fragmentReason': false,
-            'revision': 'Ember@2.4.5',
-            'loc': {
-              'source': null,
-              'start': {
-                'line': 2,
-                'column': 4
-              },
-              'end': {
-                'line': 4,
-                'column': 4
-              }
-            }
-          },
-          isEmpty: false,
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode('      template block text\n');
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
-          },
-          statements: [],
-          locals: [],
-          templates: []
-        };
-      })();
-
-      return {
-        meta: {
-          'fragmentReason': {
-            'name': 'missing-wrapper',
-            'problems': ['wrong-type']
-          },
-          'revision': 'Ember@2.4.5',
-          'loc': {
-            'source': null,
-            'start': {
-              'line': 1,
-              'column': 0
-            },
-            'end': {
-              'line': 5,
-              'column': 2
-            }
-          }
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode('\n');
-          dom.appendChild(el0, el1);
-          var el1 = dom.createComment('');
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode('  ');
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-          return morphs;
-        },
-        statements: [['block', 'nav-bar', [], [], 0, null, ['loc', [null, [2, 4], [4, 16]]]]],
-        locals: [],
-        templates: [child0]
-      };
-    })()));
-
-    assert.equal(this.$().text().trim(), 'template block text');
-  });
-});
-define('itp405-final-project/tests/integration/components/nav-bar-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - integration/components/nav-bar-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'integration/components/nav-bar-test.js should pass jshint.');
-  });
-});
 define('itp405-final-project/tests/models/event.jshint', ['exports'], function (exports) {
   'use strict';
 
@@ -525,94 +376,6 @@ define('itp405-final-project/tests/test-helper.jshint', ['exports'], function (e
     assert.ok(true, 'test-helper.js should pass jshint.');
   });
 });
-define('itp405-final-project/tests/unit/controllers/admin/edit/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:admin/edit/events', 'Unit | Controller | admin/edit/events', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/edit/events-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/admin/edit/events-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/admin/edit/events-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/edit/users-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:admin/edit/users', 'Unit | Controller | admin/edit/users', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/edit/users-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/admin/edit/users-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/admin/edit/users-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:admin/events', 'Unit | Controller | admin/events', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/events-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/admin/events-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/admin/events-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/users-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:admin/users', 'Unit | Controller | admin/users', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/admin/users-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/admin/users-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/admin/users-test.js should pass jshint.');
-  });
-});
 define('itp405-final-project/tests/unit/controllers/create-event-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('controller:create-event', 'Unit | Controller | create event', {
@@ -620,10 +383,36 @@ define('itp405-final-project/tests/unit/controllers/create-event-test', ['export
     // needs: ['controller:foo']
   });
 
+  (0, _emberQunit.test)("date correct on create event", function (assert) {
+    assert.expect(2);
+
+    // get the controller instance
+    var ctrl = this.subject();
+    var date = moment(moment()).add('days', 1).format('YYYY-MM-DD');
+    assert.equal(ctrl.createEventTest(), date);
+
+    date = moment("2016-01-01");
+    ctrl.set('mydate', date);
+    assert.equal(ctrl.createEventTest(), "2016-01-01");
+  });
+
   // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
+  (0, _emberQunit.test)('reformat time on start time change', function (assert) {
+    assert.expect(2);
+
+    // get the controller instance
+    var ctrl = this.subject();
+    var hacktime = "2015-01-01 23:30";
+    var x = moment(hacktime);
+    ctrl.set('startTime', x);
+    ctrl.send('timeChanged');
+    assert.equal(ctrl.get('time'), "23:30");
+
+    hacktime = "2015-01-01 13:30";
+    x = moment(hacktime);
+    ctrl.set('startTime', x);
+    ctrl.send('timeChanged');
+    assert.equal(ctrl.get('time'), "13:30");
   });
 });
 define('itp405-final-project/tests/unit/controllers/create-event-test.jshint', ['exports'], function (exports) {
@@ -632,73 +421,7 @@ define('itp405-final-project/tests/unit/controllers/create-event-test.jshint', [
   QUnit.module('JSHint - unit/controllers/create-event-test.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'unit/controllers/create-event-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:details', 'Unit | Controller | details', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/details-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/details-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/details-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:login', 'Unit | Controller | login', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/login-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/login-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/login-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/navbar-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:navbar', 'Unit | Controller | navbar', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/navbar-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/navbar-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/navbar-test.js should pass jshint.');
+    assert.ok(false, 'unit/controllers/create-event-test.js should pass jshint.\nunit/controllers/create-event-test.js: line 13, col 14, \'moment\' is not defined.\nunit/controllers/create-event-test.js: line 13, col 21, \'moment\' is not defined.\nunit/controllers/create-event-test.js: line 16, col 10, \'moment\' is not defined.\nunit/controllers/create-event-test.js: line 29, col 11, \'moment\' is not defined.\nunit/controllers/create-event-test.js: line 35, col 7, \'moment\' is not defined.\n\n5 errors');
   });
 });
 define('itp405-final-project/tests/unit/controllers/profile-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
@@ -709,9 +432,17 @@ define('itp405-final-project/tests/unit/controllers/profile-test', ['exports', '
   });
 
   // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
+  (0, _emberQunit.test)('set current action should set tabs to current events', function (assert) {
+    assert.expect(3);
+
+    // get the controller instance
+    var ctrl = this.subject();
+
+    ctrl.send('setCurrent');
+
+    assert.equal(ctrl.get('current'), true);
+    assert.equal(ctrl.get('created'), false);
+    assert.equal(ctrl.get('past'), false);
   });
 });
 define('itp405-final-project/tests/unit/controllers/profile-test.jshint', ['exports'], function (exports) {
@@ -730,10 +461,25 @@ define('itp405-final-project/tests/unit/controllers/register-test', ['exports', 
     // needs: ['controller:foo']
   });
 
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
+  (0, _emberQunit.test)('should update emailValid and emailInvalid on email change', function (assert) {
+    assert.expect(4);
+
+    // get the controller instance
+    var ctrl = this.subject();
+
+    ctrl.set('email', "notavalidemail.com");
+    // check the properties before the action is triggered
+    assert.equal(ctrl.get('emailValid'), false);
+    assert.equal(ctrl.get('emailInvalid'), true);
+
+    // trigger the action on the controller by using the `send` method,
+    // passing in any params that our action may be expecting
+    ctrl.set('email', "validemail@email.com");
+
+    // finally we assert that our values have been updated
+    // by triggering our action.
+    assert.equal(ctrl.get('emailValid'), true);
+    assert.equal(ctrl.get('emailInvalid'), false);
   });
 });
 define('itp405-final-project/tests/unit/controllers/register-test.jshint', ['exports'], function (exports) {
@@ -753,9 +499,16 @@ define('itp405-final-project/tests/unit/controllers/results/events-test', ['expo
   });
 
   // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
+  (0, _emberQunit.test)("should split queries", function (assert) {
+    assert.expect(1);
+
+    // get the controller instance
+    var ctrl = this.subject();
+
+    ctrl.set('q', "my name i s kevin");
+
+    var x = ['my', 'name', 'i', 's', 'kevin'];
+    assert.deepEqual(ctrl.get('queries'), x);
   });
 });
 define('itp405-final-project/tests/unit/controllers/results/events-test.jshint', ['exports'], function (exports) {
@@ -765,281 +518,6 @@ define('itp405-final-project/tests/unit/controllers/results/events-test.jshint',
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/results/events-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/controllers/results/players-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('controller:results/players', 'Unit | Controller | results/players', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  // Replace this with your real tests.
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var controller = this.subject();
-    assert.ok(controller);
-  });
-});
-define('itp405-final-project/tests/unit/controllers/results/players-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/controllers/results/players-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/controllers/results/players-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/models/user-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleForModel)('user', 'Unit | Model | user', {
-    // Specify the other units that are required for this test.
-    needs: []
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var model = this.subject();
-    // let store = this.store();
-    assert.ok(!!model);
-  });
-});
-define('itp405-final-project/tests/unit/models/user-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/models/user-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/models/user-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/admin/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:admin/events', 'Unit | Route | admin/events', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/admin/events-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/admin/events-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/admin/events-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/admin/users-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:admin/users', 'Unit | Route | admin/users', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/admin/users-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/admin/users-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/admin/users-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/create-event-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:create-event', 'Unit | Route | create event', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/create-event-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/create-event-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/create-event-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:details', 'Unit | Route | details', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/details-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/details-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/details-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/edit/events-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:edit/events', 'Unit | Route | edit/events', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/edit/events-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/edit/events-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/edit/events-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/edit/users-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:edit/users', 'Unit | Route | edit/users', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/edit/users-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/edit/users-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/edit/users-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/explore-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:explore', 'Unit | Route | explore', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/explore-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/explore-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/explore-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:login', 'Unit | Route | login', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/login-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/login-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/login-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/player-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:player', 'Unit | Route | player', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/player-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/player-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/player-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/profile-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:profile', 'Unit | Route | profile', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/profile-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/profile-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/profile-test.js should pass jshint.');
-  });
-});
-define('itp405-final-project/tests/unit/routes/register-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
-
-  (0, _emberQunit.moduleFor)('route:register', 'Unit | Route | register', {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
-  });
-
-  (0, _emberQunit.test)('it exists', function (assert) {
-    var route = this.subject();
-    assert.ok(route);
-  });
-});
-define('itp405-final-project/tests/unit/routes/register-test.jshint', ['exports'], function (exports) {
-  'use strict';
-
-  QUnit.module('JSHint - unit/routes/register-test.js');
-  QUnit.test('should pass jshint', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/register-test.js should pass jshint.');
   });
 });
 /* jshint ignore:start */

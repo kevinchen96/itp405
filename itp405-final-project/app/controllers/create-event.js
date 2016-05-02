@@ -4,12 +4,24 @@ export default Ember.Controller.extend({
 	time: "",
 	startTime: "",
 	mindate: moment(moment()).add('days', 1),
+	createEventTest: function(){
+		var date;
+		if(this.get('mydate')){
+			date = this.get('mydate').format('YYYY-MM-DD');
+		}
+		else{
+			date = moment(moment()).add('days', 1).format('YYYY-MM-DD');
+		}
+		return date;
+	},
 	actions: {
 		timeChanged(){
 			var x = this.get('startTime')._d.toTimeString().substring(0,5);
 			this.set('time', x);
 		},
 		createEvent(){
+			
+			console.log(this.get('mydate'));
 			var mod = this;
 			var actualtime;
 			var date;

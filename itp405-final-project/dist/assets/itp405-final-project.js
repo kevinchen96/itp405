@@ -295,12 +295,23 @@ define("itp405-final-project/controllers/create-event", ["exports", "ember"], fu
 		time: "",
 		startTime: "",
 		mindate: moment(moment()).add('days', 1),
+		createEventTest: function createEventTest() {
+			var date;
+			if (this.get('mydate')) {
+				date = this.get('mydate').format('YYYY-MM-DD');
+			} else {
+				date = moment(moment()).add('days', 1).format('YYYY-MM-DD');
+			}
+			return date;
+		},
 		actions: {
 			timeChanged: function timeChanged() {
 				var x = this.get('startTime')._d.toTimeString().substring(0, 5);
 				this.set('time', x);
 			},
 			createEvent: function createEvent() {
+
+				console.log(this.get('mydate'));
 				var mod = this;
 				var actualtime;
 				var date;
@@ -9738,7 +9749,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("itp405-final-project/app")["default"].create({"name":"itp405-final-project","version":"0.0.0+61a89b1a"});
+  require("itp405-final-project/app")["default"].create({"name":"itp405-final-project","version":"0.0.0+87ba025b"});
 }
 
 /* jshint ignore:end */

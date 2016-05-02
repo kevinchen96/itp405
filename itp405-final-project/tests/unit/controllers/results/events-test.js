@@ -6,7 +6,14 @@ moduleFor('controller:results/events', 'Unit | Controller | results/events', {
 });
 
 // Replace this with your real tests.
-test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+test("should split queries", function(assert) {
+  assert.expect(1);
+
+  // get the controller instance
+  const ctrl = this.subject();
+
+  ctrl.set('q', "my name i s kevin");
+
+  var x = ['my', 'name', 'i', 's', 'kevin'];
+  assert.deepEqual(ctrl.get('queries'), x);
 });

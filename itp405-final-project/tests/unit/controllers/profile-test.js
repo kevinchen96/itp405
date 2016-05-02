@@ -6,7 +6,16 @@ moduleFor('controller:profile', 'Unit | Controller | profile', {
 });
 
 // Replace this with your real tests.
-test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+test('set current action should set tabs to current events', function(assert) {
+  assert.expect(3);
+
+  // get the controller instance
+  const ctrl = this.subject();
+
+  ctrl.send('setCurrent');
+  
+  assert.equal(ctrl.get('current'), true);
+  assert.equal(ctrl.get('created'), false);
+  assert.equal(ctrl.get('past'), false);
+
 });
